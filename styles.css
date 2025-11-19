@@ -1,9 +1,35 @@
+/**
+ * Tic Tac Toe Game Styles
+ * 
+ * Modern, responsive stylesheet featuring glassmorphism design,
+ * smooth animations, and mobile-first responsive layout.
+ * 
+ * @author Tic-Tac-Toe Game Contributors
+ * @license MIT
+ * @version 1.0.0
+ */
+
+/* ========================================
+   CSS RESET & BASE STYLES
+   ======================================== */
+
+/**
+ * Universal box-sizing reset
+ * Ensures consistent sizing across all elements
+ */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/**
+ * Body: Main container and background
+ * 
+ * - Gradient background for visual appeal
+ * - Flexbox centering for game container
+ * - Full viewport height for perfect centering
+ */
 body {
     font-family: 'Arial', sans-serif;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -14,6 +40,18 @@ body {
     color: #fff;
 }
 
+/* ========================================
+   CONTAINER & MAIN LAYOUT
+   ======================================== */
+
+/**
+ * Main game container
+ * 
+ * Glassmorphism effect achieved through:
+ * - Semi-transparent background
+ * - Backdrop blur filter
+ * - Subtle border and shadow
+ */
 .container {
     text-align: center;
     background: rgba(255, 255, 255, 0.1);
@@ -26,6 +64,9 @@ body {
     width: 100%;
 }
 
+/**
+ * Main heading with gradient text effect
+ */
 h1 {
     font-size: 2.5rem;
     margin-bottom: 1.5rem;
@@ -36,10 +77,18 @@ h1 {
     background-clip: text;
 }
 
+/* ========================================
+   GAME STATUS & INFO SECTION
+   ======================================== */
+
 .game-info {
     margin-bottom: 1.5rem;
 }
 
+/**
+ * Game status display
+ * Shows current player's turn or game result
+ */
 #game-status {
     font-size: 1.3rem;
     font-weight: bold;
@@ -50,6 +99,17 @@ h1 {
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
+/* ========================================
+   GAME BOARD & CELLS
+   ======================================== */
+
+/**
+ * Game board grid layout
+ * 
+ * - CSS Grid for 3x3 layout
+ * - 10px gap between cells
+ * - Glassmorphic background
+ */
 .game-board {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -62,6 +122,14 @@ h1 {
     backdrop-filter: blur(5px);
 }
 
+/**
+ * Individual game cells
+ * 
+ * - Fixed 80x80px size
+ * - Flexbox for centering content
+ * - Smooth transitions for all properties
+ * - Interactive hover effects
+ */
 .cell {
     width: 80px;
     height: 80px;
@@ -78,6 +146,10 @@ h1 {
     backdrop-filter: blur(5px);
 }
 
+/**
+ * Cell hover state
+ * Provides visual feedback on mouse hover
+ */
 .cell:hover {
     background: rgba(255, 255, 255, 0.3);
     border-color: rgba(255, 255, 255, 0.5);
@@ -85,32 +157,62 @@ h1 {
     box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
 }
 
+/**
+ * Player X styling (red color)
+ */
 .cell.x {
     color: #ff6b6b;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
+/**
+ * Player O styling (teal color)
+ */
 .cell.o {
     color: #4ecdc4;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
+/**
+ * Winning cell highlight
+ * Applied to cells that form the winning combination
+ */
 .cell.winning-cell {
     background: rgba(255, 215, 0, 0.3);
     border-color: #ffd700;
     animation: pulse 1s infinite;
 }
 
+/* ========================================
+   ANIMATIONS
+   ======================================== */
+
+/**
+ * Pulse animation for winning cells
+ * Creates a breathing effect by scaling up and down
+ */
 @keyframes pulse {
     0% { transform: scale(1); }
     50% { transform: scale(1.1); }
     100% { transform: scale(1); }
 }
 
+/* ========================================
+   CONTROLS & BUTTONS
+   ======================================== */
+
 .game-controls {
     margin: 1.5rem 0;
 }
 
+/**
+ * Reset button styling
+ * 
+ * - Gradient background for visual appeal
+ * - No border for clean look
+ * - Smooth transitions on hover
+ * - Shadow for depth
+ */
 #reset-button {
     background: linear-gradient(45deg, #ff6b6b, #ee5a24);
     color: white;
@@ -124,16 +226,31 @@ h1 {
     box-shadow: 0 4px 15px rgba(238, 90, 36, 0.4);
 }
 
+/**
+ * Reset button hover effect
+ * Lifts button and intensifies shadow
+ */
 #reset-button:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(238, 90, 36, 0.6);
     background: linear-gradient(45deg, #ee5a24, #ff6b6b);
 }
 
+/**
+ * Reset button active/pressed state
+ */
 #reset-button:active {
     transform: translateY(0);
 }
 
+/* ========================================
+   SCOREBOARD
+   ======================================== */
+
+/**
+ * Scoreboard container
+ * Displays scores for both players and draws
+ */
 .score-board {
     display: flex;
     justify-content: space-around;
@@ -144,11 +261,17 @@ h1 {
     backdrop-filter: blur(5px);
 }
 
+/**
+ * Individual score display
+ */
 .score {
     font-size: 1rem;
     font-weight: bold;
 }
 
+/**
+ * Score labels (Player X, Player O, Draws)
+ */
 .score span:first-child {
     display: block;
     margin-bottom: 0.3rem;
@@ -156,12 +279,26 @@ h1 {
     opacity: 0.8;
 }
 
+/**
+ * Score numbers
+ */
 .score span:last-child {
     font-size: 1.5rem;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
-/* Game Over Overlay */
+/* ========================================
+   GAME OVER OVERLAY
+   ======================================== */
+
+/**
+ * Full-screen overlay for game over messages
+ * 
+ * - Fixed positioning to cover entire viewport
+ * - Semi-transparent dark background
+ * - Flexbox centering for message
+ * - Hidden by default, shown with .show class
+ */
 .game-over-overlay {
     position: fixed;
     top: 0;
@@ -178,11 +315,18 @@ h1 {
     transition: opacity 0.3s ease;
 }
 
+/**
+ * Visible state for overlay
+ */
 .game-over-overlay.show {
     opacity: 1;
     pointer-events: all;
 }
 
+/**
+ * Game over message card
+ * Displayed inside the overlay
+ */
 .game-over-message {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     padding: 2rem;
@@ -192,17 +336,36 @@ h1 {
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
 }
 
+/**
+ * Message heading (e.g., "Player X Wins!")
+ */
 .game-over-message h2 {
     font-size: 2rem;
     margin-bottom: 1rem;
 }
 
+/**
+ * Message subtitle (e.g., "Congratulations!")
+ */
 .game-over-message p {
     font-size: 1.2rem;
     margin-bottom: 1.5rem;
 }
 
-/* Responsive Design */
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+
+/**
+ * Mobile-specific styles
+ * Applied on screens smaller than 480px
+ * 
+ * Adjustments:
+ * - Reduced padding
+ * - Smaller heading
+ * - Smaller cells (60x60px)
+ * - Stacked scoreboard layout
+ */
 @media (max-width: 480px) {
     .container {
         padding: 1rem;
